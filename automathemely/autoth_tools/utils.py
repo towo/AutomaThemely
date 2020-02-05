@@ -68,7 +68,8 @@ def notify(message, title='AutomaThemely'):
 
 def pgrep(process_names, use_full=False):
     from subprocess import run, DEVNULL
-    command = ['pgrep']
+    from getpass import getuser
+    command = ['pgrep', '-u', getuser()]
     if use_full:
         command.append('-f')
     for p_name in process_names:
